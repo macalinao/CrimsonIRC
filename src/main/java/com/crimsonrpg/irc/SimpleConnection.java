@@ -4,14 +4,16 @@
  */
 package com.crimsonrpg.irc;
 
-import com.crimsonrpg.irc.api.Channel;
-import com.crimsonrpg.irc.api.Connection;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.jibble.pircbot.IrcException;
 import org.jibble.pircbot.NickAlreadyInUseException;
 import org.jibble.pircbot.PircBot;
+
+import com.crimsonrpg.irc.api.Channel;
+import com.crimsonrpg.irc.api.Connection;
 
 /**
  * Represents a connection to an IRC server.
@@ -20,6 +22,7 @@ public class SimpleConnection implements Connection {
     private String hostname;
     private String nick;
     private CrimsonBot bot;
+    private Map<String, Channel> channels = new HashMap<String, Channel>();
     
     public SimpleConnection(String hostname, String nick) {
         this.hostname = hostname;
@@ -62,7 +65,12 @@ public class SimpleConnection implements Connection {
     }
 
     public Channel getChannel(String name) {
-        return null;
+        Channel channel = channels.get(name);
+        if (channel != null) return channel;
+        
+        channel = new SimpleChannel(name, this);
+        channels.put(name, channel);
+        return channel;
     }
     
     protected CrimsonBot getBot() {

@@ -17,6 +17,7 @@ public class SimpleChannel implements Channel {
     public SimpleChannel(String name, SimpleConnection connection) {
         this.name = name;
         this.connection = connection;
+        connection.getBot().joinChannel(name);
     }
 
     public String getName() {
