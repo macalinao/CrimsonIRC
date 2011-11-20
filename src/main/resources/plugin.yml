@@ -1,0 +1,8 @@
+main: com.crimsonrpg.irc.CrimsonIRC
+
+name: CrimsonIRC
+version: 1.0
+description: An easy IRC system for Bukkit.
+
+author: AlbireoX
+website: http://crimsonrpg.com/
