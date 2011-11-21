@@ -5,6 +5,7 @@
 package com.crimsonrpg.irc;
 
 import com.crimsonrpg.irc.api.event.ChannelMessageEvent;
+import com.crimsonrpg.irc.api.event.ChannelTopicEvent;
 import com.crimsonrpg.irc.api.event.ConnectionConnectEvent;
 import com.crimsonrpg.irc.api.event.ConnectionDisconnectEvent;
 import com.crimsonrpg.irc.api.event.PrivateMessageEvent;
@@ -43,6 +44,12 @@ public class CrimsonBot extends PircBot {
     @Override
     protected void onPrivateMessage(String sender, String login, String hostname, String message) {
         PrivateMessageEvent event = new PrivateMessageEvent(connection, sender, login, hostname, message);
+        Bukkit.getServer().getPluginManager().callEvent(event);
+    }
+    
+    @Override
+    protected void onTopic(String channel, String topic, String setBy, long date, boolean changed) {
+        ChannelTopicEvent event = new ChannelTopicEvent(connection.getChannel(channel), topic, setBy, date, changed);
         Bukkit.getServer().getPluginManager().callEvent(event);
     }
 }

@@ -15,6 +15,8 @@ import org.bukkit.event.Event;
 public class IRCListener extends CustomEventListener {
     public void onChannelMessage(ChannelMessageEvent event) {}
     
+    public void onChannelTopic(ChannelTopicEvent event) {}
+    
     public void onConnectionConnect(ConnectionConnectEvent event) {}
     
     public void onConnectionDisconnect(ConnectionDisconnectEvent event) {}
@@ -30,6 +32,10 @@ public class IRCListener extends CustomEventListener {
             
             case CHANNEL_MESSAGE:
                 this.onChannelMessage((ChannelMessageEvent) event);
+                break;
+                
+            case CHANNEL_TOPIC:
+                this.onChannelTopic((ChannelTopicEvent) event);
                 break;
                 
             case CONNECTION_CONNECT:

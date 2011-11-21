@@ -10,6 +10,8 @@ package com.crimsonrpg.irc.api.event;
 public enum EventType {
     CHANNEL_MESSAGE,
     
+    CHANNEL_TOPIC,
+    
     CONNECTION_CONNECT,
     
     CONNECTION_DISCONNECT,
