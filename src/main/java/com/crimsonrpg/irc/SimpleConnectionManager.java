@@ -25,7 +25,9 @@ public class SimpleConnectionManager implements ConnectionManager {
         Connection connection = hostMap.get(name);
         if (connection != null) return connection;
         
-        return null;
+        connection = new SimpleConnection(host, name);
+        hostMap.put(name, connection);
+        return connection;
     }
     
 }

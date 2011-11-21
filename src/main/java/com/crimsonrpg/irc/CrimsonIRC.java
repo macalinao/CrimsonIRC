@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class CrimsonIRC extends JavaPlugin {
     public static final Logger LOGGER = Logger.getLogger("Minecraft");
-    public static final ConnectionManager connectionManager = new SimpleConnectionManager();
+    private static final ConnectionManager connectionManager = new SimpleConnectionManager();
     
     public void onDisable() {
         LOGGER.info("[CrimsonIRC] Plugin disabled.");
@@ -23,4 +23,7 @@ public class CrimsonIRC extends JavaPlugin {
         LOGGER.info("[CrimsonIRC] Plugin enabled.");
     }
     
+    public static ConnectionManager getConnectionManager() {
+        return connectionManager;
+    } 
 }

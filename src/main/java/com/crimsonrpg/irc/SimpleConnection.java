@@ -10,7 +10,6 @@ import java.util.Map;
 
 import org.jibble.pircbot.IrcException;
 import org.jibble.pircbot.NickAlreadyInUseException;
-import org.jibble.pircbot.PircBot;
 
 import com.crimsonrpg.irc.api.Channel;
 import com.crimsonrpg.irc.api.Connection;
@@ -30,7 +29,7 @@ public class SimpleConnection implements Connection {
     }
     
     public void connect() {
-        bot = new CrimsonBot() {{
+        bot = new CrimsonBot(this) {{
             setLogin(nick);
             setName(nick);
             setAutoNickChange(true);
@@ -76,9 +75,4 @@ public class SimpleConnection implements Connection {
     protected CrimsonBot getBot() {
         return bot;
     }
-    
-    protected class CrimsonBot extends PircBot {
-        
-    }
-    
 }
