@@ -9,6 +9,18 @@ package com.crimsonrpg.irc.api;
  */
 public interface Channel {
     /**
+     * Joins the channel.
+     */
+    public void join();
+    
+    /**
+     * Joins the channel with the specified key.
+     * 
+     * @param key 
+     */
+    public void join(String key);
+    
+    /**
      * Gets the name of this channel.
      * 
      * @return 
