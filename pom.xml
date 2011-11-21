@@ -13,14 +13,6 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  
-  <distributionManagement>
-    <snapshotRepository>
-      <id>repoc-snap</id>
-      <name>crimsonrpg Snapshots</name>
-      <url>http://testing.crimsonrpg.com:8081/nexus/content/repositories/snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
 
   <repositories>
       <repository>
