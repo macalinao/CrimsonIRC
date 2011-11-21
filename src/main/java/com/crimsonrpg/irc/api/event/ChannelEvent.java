@@ -16,4 +16,8 @@ public abstract class ChannelEvent extends IRCEvent {
         super(type, channel.getConnection());
         this.channel = channel;
     }
+
+    public Channel getChannel() {
+        return channel;
+    }
 }
